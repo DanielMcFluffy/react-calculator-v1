@@ -1,0 +1,13 @@
+.col-3 > .btn {
+  color: whitesmoke;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.col-6 > .btn {
+  width: 100%;
+}
+
+.btn {
+  font-size: large;
+}
