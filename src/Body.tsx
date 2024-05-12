@@ -54,7 +54,18 @@ const Body = () => {
               <div className="col-3">
                 <Button
                   symbol={"±"}
-                  onClick={() => console.log("not implemented")}
+                  onClick={() => {
+                    const expression = display.join("");
+                    try {
+                      const result = new Function(`return (${expression}) `)(); //if the returned value is negative, make it  positive, else make it negative
+                      setDisplay([-result]);
+                    } catch (error) {
+                      setDisplay(["INVALID USAGE"]);
+                      setTimeout(() => {
+                        setDisplay([0]);
+                      }, 500);
+                    }
+                  }}
                   className={"btn btn-secondary"}
                   disabled={
                     display[0] === 0 || display[display.length - 1] === "±"
